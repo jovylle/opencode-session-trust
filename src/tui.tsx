@@ -1,6 +1,7 @@
 import { Plugin } from "@opencode/plugin/tui"
 import type { SessionUpdateInput } from "@opencode/client"
 import { enable, reset, status } from "./trust.ts"
+import { footerLabel } from "./footer.ts"
 
 export default Plugin.define({
   id: "session-trust.cli",
@@ -79,17 +80,9 @@ export default Plugin.define({
 
     context.ui.slot({
       append: "prompt.footer.status",
-      render: ({ sessionID }) => {
-        if (!sessionID) return null
-        const session = context.data.session.get(sessionID)
-        if (!session) return null
-        try {
-          const current = status(session)
-          return current === "trusted" ? " TRUSTED " : current === "changed" ? " TRUST CHANGED " : null
-        } catch {
-          return " TRUST BACKUP INVALID "
-        }
-      },
+      render: (input) => (
+        <text>{footerLabel(input.sessionID ? context.data.session.get(input.sessionID) : undefined)}</text>
+      ),
     })
   },
 })

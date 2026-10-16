@@ -1,6 +1,6 @@
 {
   "name": "opencode-session-trust",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Explicit, reversible trust for one OpenCode V2 session.",
   "type": "module",
   "license": "MIT",
@@ -17,8 +17,16 @@
     "check": "npm run typecheck && npm test"
   },
   "engines": { "node": ">=22.18.0" },
+  "peerDependencies": {
+    "@opentui/core": ">=0.5.16",
+    "@opentui/solid": ">=0.5.16",
+    "solid-js": ">=1.9.0"
+  },
   "devDependencies": {
     "@opencode/plugin": "2.0.25",
+    "@opentui/core": "0.5.16",
+    "@opentui/solid": "0.5.16",
+    "solid-js": "1.9.12",
     "@types/node": "^24.0.0",
     "typescript": "^5.9.0"
   }
