@@ -1,0 +1,25 @@
+{
+  "name": "opencode-session-trust",
+  "version": "0.1.0",
+  "description": "Explicit, reversible trust for one OpenCode V2 session.",
+  "type": "module",
+  "license": "MIT",
+  "repository": "github:jovylle/opencode-session-trust",
+  "exports": {
+    ".": "./index.ts",
+    "./tui": "./tui.ts"
+  },
+  "files": ["src", "index.ts", "tui.ts", "README.md", "LICENSE"],
+  "scripts": {
+    "test": "node --test test/*.test.ts",
+    "test:integration": "node test/integration.ts",
+    "typecheck": "tsc --noEmit",
+    "check": "npm run typecheck && npm test"
+  },
+  "engines": { "node": ">=22.18.0" },
+  "devDependencies": {
+    "@opencode/plugin": "2.0.25",
+    "@types/node": "^24.0.0",
+    "typescript": "^5.9.0"
+  }
+}
